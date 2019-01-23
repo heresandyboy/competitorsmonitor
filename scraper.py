@@ -5,11 +5,11 @@ import datetime
 
 # Blank Python
 
-ASINS = ["B0018AA9CU", "B0018A7F8Q", "B000KNFR2S", "B00112VEA6", "B000CO89T8"]
+ASINS = ["B07747FR44"]
 summary = ""
 
 for asin in ASINS:
-    url = "http://www.amazon.com/dp/"+asin
+    url = "http://www.amazon.co.uk/dp/"+asin
     html = scraperwiki.scrape(url)
     root = lxml.html.fromstring(html)
     for title in root.cssselect("span[id='btAsinTitle']"):
@@ -22,7 +22,7 @@ for asin in ASINS:
 
 now = datetime.datetime.now()
 data = {
-    'link': "http://www.amazon.com/"+"&uuid="+str(uuid.uuid1()),
+    'link': "http://www.amazon.co.uk/"+"&uuid="+str(uuid.uuid1()),
     'title': "Price Monitoring " + str(now),
     'description': summary,
     'pubDate': str(now),
